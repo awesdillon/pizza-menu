@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -48,21 +49,80 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
+      <h1>Comfort Is a Slow Death.</h1>
       <h1>Hello React!</h1>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Header />
+      <Menu />
+      <Footer />
     </div>
   );
 }
 
-function Pizza() {
+function Header() {
+  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+  const style = {};
+  return (
+    <div className="header">
+      <h1 style={style}>Langerud Norwegian Pizza Co</h1>
+    </div>
+  );
+}
+
+function Menu() {
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      <Pizza
+        name="Pizza Spinaci"
+        photoName="pizzas/spinaci.jpg"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        price={10}
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mushrooms"
+        price={12}
+        photoName="pizzas/funghi.jpg"
+      />
+    </main>
+  );
+}
+function Pizza(props) {
+  console.log(props);
+  return (
+    <div className="pizza">
+      <img className="pizza" src={props.photoName} alt={props.name} />
+      <h3>{props.name}</h3>
+      <div>
+        <p>{props.ingredients}</p>
+        <span>{props.price}</span>
+      </div>
+    </div>
+  );
+}
+
+function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 10;
+  const closeHour = 23;
+  const isOpen = hour >= openHour && hour <= closeHour;
+
+  // if (isOpen) {
+  //   alert("We are open!");
+  // } else {
+  //   alert("We are closed!");
+  // }
+  // if (hour >= openHour && hour <= closeHour) {
+  //   alert("We are open!");
+  // } else {
+  //   alert("We are closed!");
+  // }
   return (
     <div>
-      <img src="pizzas/spinaci.jpg" alt="spinach pizza" />
-      <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
+      <footer className="footer">
+        It's {new Date().toLocaleTimeString()} and we're currently open!
+      </footer>
     </div>
   );
 }
