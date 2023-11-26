@@ -58,7 +58,6 @@ function App() {
 }
 
 function Header() {
-  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
   const style = {};
   return (
     <div className="header">
@@ -69,7 +68,6 @@ function Header() {
 
 function Menu() {
   const pizzas = pizzaData;
-  // const pizzas = [];
   const numPizzas = pizzas.length;
   return (
     <main className="menu">
@@ -93,18 +91,6 @@ function Menu() {
       ) : (
         <p>We're still working on our menu, please check back later!</p>
       )}
-      {/* <Pizza
-        name="Pizza Spinaci"
-        photoName="pizzas/spinaci.jpg"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        price={10}
-      />
-      <Pizza
-        name="Pizza Funghi"
-        ingredients="Tomato, mushrooms"
-        price={12}
-        photoName="pizzas/funghi.jpg"
-      /> */}
     </main>
   );
 }
@@ -112,9 +98,6 @@ function Menu() {
 function Pizza({ pizzaObj }) {
   console.log(pizzaObj);
 
-  // if (pizzaObj.soldOut) {
-  //   return <p>Sorry, the {pizzaObj.name} is currently sold out.</p>;
-  // }
   return (
     <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img className="pizza" src={pizzaObj.photoName} alt={pizzaObj.name} />
@@ -132,17 +115,6 @@ function Footer() {
   const openHour = 10;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
-
-  // if (isOpen) {
-  //   alert("We are open!");
-  // } else {
-  //   alert("We are closed!");
-  // }
-  // if (hour >= openHour && hour <= closeHour) {
-  //   alert("We are open!");
-  // } else {
-  //   alert("We are closed!");
-  // }
 
   return (
     <div>
