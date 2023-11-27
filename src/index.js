@@ -43,7 +43,7 @@ const pizzaData = [
     ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
     price: 18,
     photoName: "pizzas/prosciutto.jpg",
-    soldOut: false,
+    soldOut: false,/
   },
 ];
 
@@ -58,10 +58,9 @@ function App() {
 }
 
 function Header() {
-  const style = {};
   return (
     <div className="header">
-      <h1 style={style}>Langerud Norwegian Pizza Co</h1>
+      <h1>Langerud Norwegian Pizza Co</h1>
     </div>
   );
 }
